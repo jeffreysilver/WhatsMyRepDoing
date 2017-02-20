@@ -1,11 +1,12 @@
 var Signup = React.createClass({
 
-	getInitialState: function() {
+	getInitialState() {
 		return { user: {
 				  email: '',
 				  password: '',
 				  address: '',
-				  location: {}
+				  lat: '',
+				  lng: ''
 				 },
 				 addresses: [],
 				 showButton: false		
@@ -24,6 +25,7 @@ var Signup = React.createClass({
 
 	handleSubmit() {
 		this.props.handleRegister(this.state.user)
+		return false;
 	},
 
 	handlePasswordChange(e) {
@@ -61,13 +63,11 @@ var Signup = React.createClass({
 		var user = this.state.user;
 		user.address = address.formatted_address;
 		user.location = address.geometry.location;
+		user.lat = parseFloat(address.geometry.location.lat);
+		user.lng = parseFloat(address.geometry.location.lng);
 		this.setState({user: user,
 						showButton: true
 						})
-
-
-		console.log(this.state)
-
 	},
 	
 	render() {
@@ -77,15 +77,14 @@ var Signup = React.createClass({
 			return (
 				<div style={this.getDivStyle()}>
 					<h1 className="sign-up">Sign up</h1>
-					<form className="register">
-				        <input type="text" onChange={this.handleEmailChange} className='full' placeholder='Email' value={this.state.user.email} />
+					<div className="register">
+				        <input type="text" onChange={this.handleEmailChange} className='full' placeholder='Email' value={this.state.user.email} autoComplete="off"/>
 				        <br/>
-				        <input type="text" onChange={this.handlePasswordChange} className='full' placeholder='Password' value={this.state.user.password} />
+				        <input type="text" onChange={this.handlePasswordChange} className='full' placeholder='Password' value={this.state.user.password} autoComplete="off" />
 				     	<br/>
-				        <input type="text" onChange={this.handleAddressChange} className='full' placeholder='Address' value={this.state.user.address} /> <br/>
+				        <input type="text" onChange={this.handleAddressChange} className='full' placeholder='Address' value={this.state.user.address} autoComplete="off" /> <br/>
 				     	{this.state.showButton? button : addresses}	
-			     	</form>
-
+			     	</div>
 				</div>
 				)
 	}

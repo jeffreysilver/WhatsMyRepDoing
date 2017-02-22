@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220192500) do
+ActiveRecord::Schema.define(version: 20170222163441) do
 
   create_table "followings", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20170220192500) do
   end
 
   create_table "politicians", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "bioguide_id"
     t.string   "birthday"
     t.string   "chamber"
@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(version: 20170220192500) do
     t.string   "state"
     t.string   "image_url"
     t.string   "rss_url"
+    t.string   "api_url"
+    t.string   "next_election"
+    t.string   "missed_votes_pct"
+    t.string   "votes_with_party_pct"
   end
 
   create_table "users", force: :cascade do |t|

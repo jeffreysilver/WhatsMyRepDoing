@@ -1,4 +1,4 @@
-var SearchResults = React.createClass({
+var AddressResults = React.createClass({
 
 	handleClick(result) {
 		this.props.handleAddressClick(result)

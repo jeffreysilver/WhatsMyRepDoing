@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 
 	def search
-		puts params
-		render :nothing => true
+		@politicians = Politician.search(params[:query]).take(5)
+		render "search.json"
 	end
 end

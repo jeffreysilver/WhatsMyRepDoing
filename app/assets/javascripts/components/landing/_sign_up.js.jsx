@@ -73,7 +73,7 @@ var Signup = React.createClass({
 	render() {
 
 		button = <button className='register-btn' onClick={this.handleSubmit}>Submit</button>
-		addresses = <AddressResults results={this.state.addresses} handleAddressClick={this.handleAddressClick} />
+		addresses = <SearchResults results={this.state.addresses} handleAddressClick={this.handleAddressClick} />
 			return (
 				<div style={this.getDivStyle()}>
 					<h1 className="sign-up">Sign up</h1>

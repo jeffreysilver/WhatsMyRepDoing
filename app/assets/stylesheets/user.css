@@ -16,6 +16,13 @@ input.search-input {
 	font-size: 18px;
 }
 
+div.mixed-search-results {
+	width: 40%;
+	margin: 0 auto;
+	padding: 12px 20px;
+	background-color: red;
+}
+
 input::-webkit-input-placeholder {
 color: #eee !important;
 }

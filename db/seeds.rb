@@ -22,3 +22,5 @@ require 'open-uri'
 # 	r.delete("other_names")
 # 	Politician.create(r)
 # end
+
+url = 'https://api.propublica.org/congress/v1/115/senate/members.json'

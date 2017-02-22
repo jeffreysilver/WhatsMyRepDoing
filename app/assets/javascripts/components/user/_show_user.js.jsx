@@ -2,23 +2,9 @@ var ShowUser = React.createClass({
 
 	getInitialState() {
 		return {
-			legislators: this.props.legislators
+			legislators: this.props.legislators,
+			searchResults: []
 		}
-	},
-
-	handleSearch(query) {
-		$.get( {
-		    url  : '/search',
-		    data : {
-		        query : query
-		    },
-		    success: (response) => { 
-		    	console.log(response);
-	    	},
-		    error: (response) => { 
-		    	console.log('it failed!', response);
-    		}
-		} );
 	},
 	
 	render() {
@@ -30,7 +16,7 @@ var ShowUser = React.createClass({
 			});
 		return (
 			<div>
-				<SearchBar handleSearch={this.handleSearch} />
+				<SearchBar />
 				{legislators}
 			</div>
 		)

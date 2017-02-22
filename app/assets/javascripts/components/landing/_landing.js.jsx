@@ -31,6 +31,7 @@ var Landing = React.createClass({
 					<HeaderBlock
 								m1="What Are Your Representatives Up To?"
 								m2="Stay informed and get in touch with them when it matters most to you" />
+					<SideBySide />
 					<Signup handleRegister={this.handleRegister} />
 				</div>
 				)

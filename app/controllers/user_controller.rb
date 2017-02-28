@@ -15,6 +15,22 @@ class UserController < ApplicationController
 		redirect_to("/home/#{@user.id}")
 	end
 
+	def follow_address
+		@user = User.find(params[:user_id])
+		client = Congress::Client.new('jeffreygsilver@gmail.com')
+		result = client.legislators_locate(params[:lat], params[:lng])
+		bioguide_ids = result['results'].map{|l| l['bioguide_id']}
+		bioguide_ids.each do |b|
+			l = Politician.where(bioguide_id: b).first
+			if not @user.politicians.include? l
+				@user.politicians << l
+			end
+		end
+		@user.save
+		@politicians = @user.politicians
+		render 'politicians.json'
+	end
+
 	def show
 		if params[:id] && User.find(params[:id])
 			@user = User.find(params[:id])

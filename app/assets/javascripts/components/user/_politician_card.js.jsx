@@ -10,7 +10,7 @@ var PoliticianCard = React.createClass({
 		var rep = <h3>{'Rep. ' + leg.first_name + ' ' + leg.last_name}</h3>
 		return (
 			<div key={leg.bioguide_id} className="politician-card"> 
-				<img className="politician-img" src={leg.image_url} />
+				<a href={'/politician/' + leg.id}><img className="politician-img" src={leg.image_url} /></a>
 				<a href={leg.website} target="_blank">{leg.chamber == 'house'? rep : sen}</a>	
 				<p>{leg.party + ", " + leg.state}</p>
 				<a href={"http://www.twitter.com/" + leg.twitter_id} target="_blank">{"@" + leg.twitter_id}</a>

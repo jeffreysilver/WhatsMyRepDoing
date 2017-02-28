@@ -1,3 +1,64 @@
-// Place all the styles related to the User controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.search-widget {
+	position: relative;
+	width: 100%;
+}
+
+.search-bar {
+	background: #3498db;
+	text-align: center;
+	padding: 15px;
+	height: 50px;
+	position: relative;
+}
+
+input.search-input {
+	margin: 0 auto;
+	text-align: left;
+	padding: 12px 20px;
+	width: 40%;
+	background: #2980b9;
+	border: 0;
+	color: white;
+	font-size: 18px;
+}
+
+div.mixed-search-results {
+	width: 42%;
+	top: 60px;
+	position: absolute;
+	left: 0; 
+ 	right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+a.result-row {
+    display: block;
+    color: rgb(50, 50, 50);
+    background-color: #fafafa;
+    padding: 14px;
+   	border: 1px solid silver;
+   	cursor: pointer;
+   	cursor: hand;
+}
+
+.legistlator-card-holder {
+	background-color: #fafafa;
+}
+
+
+input::-webkit-input-placeholder {
+color: #eee !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: red !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: red !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: red !important;  
+}

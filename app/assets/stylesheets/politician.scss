@@ -1,0 +1,21 @@
+img.politician-img {
+	width: 200px;
+}
+
+.politician-card {
+	margin: 20px;
+	text-align: center;
+	border: 1px solid silver;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding-bottom: 10px;
+}
+
+div.politician-card {
+	display: inline-block;
+}	
+
+div.social-media {
+	display: inline;
+}
+

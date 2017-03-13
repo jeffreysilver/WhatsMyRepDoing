@@ -26,7 +26,7 @@ class Politician < ActiveRecord::Base
 		members.each do |m|
 			pol = Politician.where(bioguide_id: m['id']).first
 			unless pol.nil?
-				pol.api_url = m['api_url']
+				pol.api_url = m['api_uri']
 				pol.rss_url = m['rss_url']
 				pol.next_election = m['next_election']
 				pol.missed_votes_pct = m['missed_votes_pct']

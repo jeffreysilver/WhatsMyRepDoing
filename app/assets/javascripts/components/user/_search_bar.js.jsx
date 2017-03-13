@@ -4,7 +4,8 @@ var SearchBar = React.createClass({
 		return {
 			input: '',
 			results: [],
-			addresses: []
+			addresses: [],
+			showResults: false
 		}
 	},
 
@@ -12,7 +13,7 @@ var SearchBar = React.createClass({
 		query = e.target.value;
 		this.setState({input: query});
 		if (query.length == 0) {
-			this.setState({results: [], addresses: []})
+			this.setState({results: [], addresses: [], showResults: false})
 		} else {
 			$.get( {
 			    url  : '/search',
@@ -20,7 +21,10 @@ var SearchBar = React.createClass({
 			        query : query
 			    },
 			    success: (response) => { 
-			    	this.setState({results: response['politicians'], addresses: response['addresses']})
+			    	if (this.state.input.length != 0) {
+			    		this.setState({results: response['politicians'], addresses: response['addresses'], showResults: true})
+
+			    	}
 		    	},
 			    error: (response) => { 
 			    	console.log('it failed!', response);
@@ -37,7 +41,7 @@ var SearchBar = React.createClass({
 						<input placeholder="Search politicians or addresses" className='search-input' value={this.state.input} onChange={this.handleSearch} />
 					</div>
 				</div>
-				<SearchResults results={this.state.results} addresses={this.state.addresses} handleAddressClick={this.props.handleAddressClick} />
+				{this.state.showResults ? <SearchResults results={this.state.results} addresses={this.state.addresses} handleAddressClick={this.props.handleAddressClick} /> : null }
 			</div>
 		)
 	}

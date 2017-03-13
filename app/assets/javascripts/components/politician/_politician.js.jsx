@@ -19,16 +19,16 @@ var Politician = React.createClass({
 	render() {
 		var pol = this.state.politician;
 		return (
-			<div>
+			<div className='politician-page'>
 				<img src={pol.image_url} />
 				<h1>{this.getTitledName()}</h1>
+				<button>Follow</button>
 				<h2>{pol.party+", " + pol.state_name}</h2>
 				<h3>{'Up for reelection: ' + this.getCorrectDate(pol.next_election)}</h3>
 				<SocialMedia politician={this.state.politician} />
 				<p>{'Office Address: ' + pol.office_address}</p>
 				<p>{'Votes with party: ' + pol.votes_with_party_pct + "%"}</p>
 				<p>{'Missed votes: ' + pol.missed_votes_pct + "%"}</p>
-
 			</div>
 		);
 	}
